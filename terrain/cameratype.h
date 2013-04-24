@@ -34,16 +34,16 @@ public:
   void SetPos(float, float, float);
   void SetUpStart(float, float, float);
   void SetLookStart(float, float, float);
-  void CameraType::Rotate(float deltaRoll, float deltaPitch, float deltaYaw);
-  void CameraType::MovePos(float deltaX, float deltaY, float deltaZ);
-  float *CameraType::GetPos(void);
-  float *CameraType::GetLook(void);
-  float *CameraType::GetUp(void);
-  float CameraType::GetPitch(void);
-  float CameraType::GetRoll(void);
-  float CameraType::GetYaw(void);
-  void CameraType::MoveAlongLookVector(float move);
-  void CameraType::RotateVector(float *v, float xAngle, float yAngle, float zAngle);
+  void Rotate(float deltaRoll, float deltaPitch, float deltaYaw);
+  void MovePos(float deltaX, float deltaY, float deltaZ);
+  float *GetPos(void);
+  float *GetLook(void);
+  float *GetUp(void);
+  float GetPitch(void);
+  float GetRoll(void);
+  float GetYaw(void);
+  void MoveAlongLookVector(float move);
+  void RotateVector(float *v, float xAngle, float yAngle, float zAngle);
 };
 
 #endif
