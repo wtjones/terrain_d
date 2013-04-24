@@ -7,7 +7,7 @@
     #include <GLUT/GLUT.h>
 #elif defined WIN32
     #include <windows.h>
-    #include <gl\glut.h>
+    #include <glut.h>
 #endif
 #include "travmath.h"
 #include "frustumtype.h"
