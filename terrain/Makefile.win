@@ -1,0 +1,44 @@
+# Project: terrain_p
+# Makefile created by Dev-C++ 4.9.8.0
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = tgatype.o cameratype.o travmath.o terraintype.o frustumtype.o terrainapp.o $(RES)
+LINKOBJ  = tgatype.o cameratype.o travmath.o terraintype.o frustumtype.o terrainapp.o $(RES)
+LIBS =  -L"C:/dev/Dev-Cpp/lib" -lglut32 -lopengl32 -lglu32
+INCS =  -I"C:/dev/Dev-Cpp/include" 
+CXXINCS =  -I"C:/dev/Dev-Cpp/include/c++"  -I"C:/dev/Dev-Cpp/include/c++/mingw32"  -I"C:/dev/Dev-Cpp/include/c++/backward"  -I"C:/dev/Dev-Cpp/include" 
+BIN  = terrain_p.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS = $(INCS) 
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before terrain_p.exe all-after
+
+
+clean: clean-custom
+	rm -f $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	$(CPP) $(LINKOBJ) -o "terrain_p.exe" $(LIBS)
+
+tgatype.o: tgatype.cpp C:/dev/Dev-Cpp/include/c++/iostream     C:/dev/Dev-Cpp/include/c++/fstream tgatype.h  
+	$(CPP) -c tgatype.cpp -o tgatype.o $(CXXFLAGS)
+
+cameratype.o: cameratype.cpp cameratype.h     C:/dev/Dev-Cpp/include/c++/iostream  
+	$(CPP) -c cameratype.cpp -o cameratype.o $(CXXFLAGS)
+
+travmath.o: travmath.cpp travmath.h C:/dev/Dev-Cpp/include/math.h     C:/dev/Dev-Cpp/include/_mingw.h C:/dev/Dev-Cpp/include/c++/iostream  
+	$(CPP) -c travmath.cpp -o travmath.o $(CXXFLAGS)
+
+terraintype.o: terraintype.cpp terraintype.h     C:/dev/Dev-Cpp/include/c++/iostream C:/dev/Dev-Cpp/include/c++/fstream     C:/dev/Dev-Cpp/include/gl/gl.h travmath.h frustumtype.h tgatype.h  
+	$(CPP) -c terraintype.cpp -o terraintype.o $(CXXFLAGS)
+
+frustumtype.o: frustumtype.cpp frustumtype.h     C:/dev/Dev-Cpp/include/c++/iostream C:/dev/Dev-Cpp/include/gl/gl.h     travmath.h  
+	$(CPP) -c frustumtype.cpp -o frustumtype.o $(CXXFLAGS)
+
+terrainapp.o: terrainapp.cpp C:/dev/Dev-Cpp/include/c++/iostream     C:/dev/Dev-Cpp/include/GL/glut.h C:/dev/Dev-Cpp/include/GL/gl.h     C:/dev/Dev-Cpp/include/GL/glu.h cameratype.h terraintype.h     C:/dev/Dev-Cpp/include/c++/fstream C:/dev/Dev-Cpp/include/gl/gl.h     travmath.h frustumtype.h tgatype.h  
+	$(CPP) -c terrainapp.cpp -o terrainapp.o $(CXXFLAGS)
