@@ -39,7 +39,7 @@ TODO LIST:
 #ifdef WIN32
   #include <windows.h>
 #endif
-#include <GL/glut.h>
+#include <glut.h>
 
 #include "cameratype.h"
 #include "terraintype.h"
@@ -478,12 +478,12 @@ void DrawText(float r, float g, float b)
 void myinit()
 {
 
-	glEnable( GL_DEPTH_TEST );
-	glEnable(GL_TEXTURE_2D);	
-	//glShadeModel(GL_SMOOTH);
-	//glEnable( GL_POLYGON_SMOOTH );
+  glEnable( GL_DEPTH_TEST );
+  glEnable(GL_TEXTURE_2D);	
+  //glShadeModel(GL_SMOOTH);
+  //glEnable( GL_POLYGON_SMOOTH );
 		
-	glGenTextures(1, &texture[0]);
+  glGenTextures(1, &texture[0]);
   glBindTexture(GL_TEXTURE_2D, texture[0]);
   glTexImage2D(  GL_TEXTURE_2D, 0, GL_RGB, landTexture.GetWidth(),
             landTexture.GetHeight(), 0, GL_RGB, GL_UNSIGNED_BYTE, landTexture.buffer);
@@ -491,7 +491,7 @@ void myinit()
   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);	// Linear Filtering
   glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);	// Linear Filtering
 	
-	reshape(clientWidth, clientHeight);
+  reshape(clientWidth, clientHeight);
 
 }
 
@@ -503,7 +503,7 @@ void CleanUp(void)
 
 int main(int argc, char *argv[])
 {
-	char mapFileName[30], textureFileName[30];
+  char mapFileName[30], textureFileName[30];
   atexit(CleanUp);  //termination callback
   clientWidth = clientHeight = 600;
   srand(time(NULL));
@@ -531,14 +531,14 @@ int main(int argc, char *argv[])
     strcpy(mapFileName, argv[1]);
   }
   else
-    strcpy(mapFileName, "map.tga");
+    strcpy(mapFileName, "assets\\map.tga");
  
   if(argc == 3) 
   {
     strcpy(textureFileName, argv[2]);
   }
   else
-    strcpy(textureFileName, "texture.tga");
+    strcpy(textureFileName, "assets\\texture.tga");
     
   if (terrain.LoadHeightmap(mapFileName, 
                             TERRAIN_UNITS, 
@@ -561,7 +561,7 @@ int main(int argc, char *argv[])
   
   glEnableClientState(GL_VERTEX_ARRAY);
 
-	glVertexPointer(3, GL_FLOAT, 0, terrain.vertices);	
+  glVertexPointer(3, GL_FLOAT, 0, terrain.vertices);	
   glTexCoordPointer(2, GL_FLOAT, 0, terrain.textureCoords);
   glColorPointer(3, GL_FLOAT, 0, terrain.colors);
  

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{b0fd2f54-165a-4000-8a8b-6e5ed22f4dea}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{ab865d45-1af2-4674-b17a-30c033250d2f}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{73d3a8fe-c4c4-4357-9812-92e73ac6572b}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{e7f7f4e5-b342-4fbc-a333-f06f8d26d6b3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cameratype.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="frustumtype.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="terrainapp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="terraintype.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tgatype.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="travmath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cameratype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="frustumtype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="terraintype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tgatype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="travmath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\map.tga">
+      <Filter>Assets</Filter>
+    </None>
+    <None Include="assets\texture.tga">
+      <Filter>Assets</Filter>
+    </None>
+  </ItemGroup>
+</Project>
