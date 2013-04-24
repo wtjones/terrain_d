@@ -36,10 +36,12 @@ TODO LIST:
 #include <stdlib.h>
 #include <time.h>
 
-#ifdef WIN32
-  #include <windows.h>
+#ifdef __APPLE__
+    #include <GLUT/GLUT.h>
+#elif defined WIN32
+    #include <windows.h>
+    #include <gl\glut.h>
 #endif
-#include <glut.h>
 
 #include "cameratype.h"
 #include "terraintype.h"
@@ -398,9 +400,13 @@ void display(void)
     fps = countFrames;
     countFrames = 0;
     startTime = timeNow;
+#ifdef _WIN32
     Sleep(3); // compensate for glut's ability to take up 100% cpu
-  }  
+#endif
+  }
+#ifdef _WIN32
   Sleep(3);
+#endif
 } // END display()
 
 
@@ -531,14 +537,14 @@ int main(int argc, char *argv[])
     strcpy(mapFileName, argv[1]);
   }
   else
-    strcpy(mapFileName, "assets\\map.tga");
+    strcpy(mapFileName, "assets/map.tga");
  
   if(argc == 3) 
   {
     strcpy(textureFileName, argv[2]);
   }
   else
-    strcpy(textureFileName, "assets\\texture.tga");
+    strcpy(textureFileName, "assets/texture.tga");
     
   if (terrain.LoadHeightmap(mapFileName, 
                             TERRAIN_UNITS, 

@@ -4,11 +4,12 @@
 #include <iostream>
 #include <stdlib.h>
 #include <math.h>
-
-#ifdef WIN32
-  #include <windows.h>
+#ifdef __APPLE__
+    #include <GLUT/GLUT.h>
+#elif defined WIN32
+    #include <windows.h>
+    #include <gl\glut.h>
 #endif
-#include <gl/gl.h>
 #include "travmath.h"
 
 class FrustumType

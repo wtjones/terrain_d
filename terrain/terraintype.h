@@ -3,10 +3,12 @@
 
 #include <iostream>
 #include <fstream>
-#ifdef WIN32
-  #include <windows.h>
+#ifdef __APPLE__
+    #include <GLUT/GLUT.h>
+#elif defined WIN32
+    #include <windows.h>
+    #include <gl\glut.h>
 #endif
-#include <gl/gl.h>
 #include "travmath.h"
 #include "frustumtype.h"
 
