@@ -139,24 +139,23 @@ void OnMousePassiveMove(int x, int y)
 
 void OnMouseMove(int x, int y)
 {
-//cout << x <<" : "<<y<<endl;
   if (leftButtonState == GLUT_DOWN || rightButtonState == GLUT_DOWN)
   {
-  deltaMouseYaw = (float)-(x - mouseX);
-  deltaMousePitch = (float)(y - mouseY);
-  if (deltaMousePitch > 20.0f || deltaMousePitch < -20.0f)
-    deltaMousePitch = 0.0f;
-
-  mouseY = y;
-  mouseX = x;
+    deltaMouseYaw = (float)-(x - mouseX);
+    deltaMousePitch = (float)(y - mouseY);
+    if (deltaMousePitch > 20.0f || deltaMousePitch < -20.0f)
+    {
+      deltaMousePitch = 0.0f;
+    }
+    mouseY = y;
+    mouseX = x;
   }
-  
 }
 
-void SpecialKeyDown(int key, int x, int y) {
-
-  switch (key) {
-      
+void SpecialKeyDown(int key, int x, int y)
+{
+  switch (key)
+  {
     case GLUT_KEY_LEFT:
       deltaYaw = moveSpeed;    
       break;
@@ -169,10 +168,9 @@ void SpecialKeyDown(int key, int x, int y) {
 		case GLUT_KEY_DOWN:
 		  deltaMove = -moveSpeed;    
       break;
-      case GLUT_KEY_F11:
+    case GLUT_KEY_F11:
       detailValue -= 0.5f;
       break;
-      
     case GLUT_KEY_F12:
       detailValue += 0.5f;
       break;
@@ -217,10 +215,8 @@ void keyboardDown(unsigned char key, int x, int y)
     if (newSpeed > 0 && newSpeed < 10) moveSpeed = newSpeed*2;
   }
   
-   switch (key) 
-   {
-    
-      
+  switch (key)
+  {
     case 'a':
       deltaPitch = -ROTATE_SPEED /2; 
       break;
@@ -236,7 +232,7 @@ void keyboardDown(unsigned char key, int x, int y)
     case 'd':
       deltaRoll = ROTATE_SPEED;       
       break;
-      
+
     case 'w':
       if (wireframeMode) wireframeMode = false;
       else wireframeMode = true;
@@ -250,6 +246,12 @@ void keyboardDown(unsigned char key, int x, int y)
       break;
     case 'r':
       terrain.buildDebugOutput = true; 
+      break;
+    case '-':
+      detailValue -= 0.5f;
+      break;
+    case '=':
+      detailValue += 0.5f;
       break;
    }
 }
@@ -279,8 +281,8 @@ void keyboardUp(unsigned char key, int x, int y)
 
 void reshape (int w, int h)
 { 		
-	glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
-	glClearDepth( 1.0f );
+  glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
+  glClearDepth( 1.0f );
 	
   glViewport (0, 0, (GLsizei) w, (GLsizei) h); 
   glMatrixMode (GL_PROJECTION);
@@ -511,7 +513,8 @@ int main(int argc, char *argv[])
 {
   char mapFileName[30], textureFileName[30];
   atexit(CleanUp);  //termination callback
-  clientWidth = clientHeight = 600;
+  clientWidth = 800;
+  clientHeight = 600;
   srand(time(NULL));
   
   glutInit(&argc, argv);
@@ -574,9 +577,9 @@ int main(int argc, char *argv[])
   myinit();
 
   cam.SetPos(terrain.width/4, 120.0, terrain.height/4); // middle of terrain
-  cam.Rotate(0.0, 0.0, 200.0); // facing forward
+  cam.Rotate(0.0, 0.0, 200.0);                          // facing forward
   
-  startTime = glutGet(GLUT_ELAPSED_TIME); // start the fps counter
+  startTime = glutGet(GLUT_ELAPSED_TIME);               // start the fps counter
   glutDisplayFunc(display);
 
   glutMainLoop();

@@ -39,8 +39,7 @@
 		1F0C2EBE1727745300F54089 /* cameratype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameratype.h; sourceTree = "<group>"; };
 		1F0C2EBF1727745300F54089 /* frustumtype.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = frustumtype.cpp; sourceTree = "<group>"; };
 		1F0C2EC01727745300F54089 /* frustumtype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = frustumtype.h; sourceTree = "<group>"; };
-		1F0C2EC21727745300F54089 /* mygl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mygl.h; sourceTree = "<group>"; };
-		1F0C2EC31727745300F54089 /* terrainapp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = terrainapp.cpp; sourceTree = "<group>"; };
+		1F0C2EC31727745300F54089 /* terrainapp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.cpp; path = terrainapp.cpp; sourceTree = "<group>"; tabWidth = 2; };
 		1F0C2EC41727745300F54089 /* terraintype.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = terraintype.cpp; sourceTree = "<group>"; };
 		1F0C2EC51727745300F54089 /* tgatype.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tgatype.cpp; sourceTree = "<group>"; };
 		1F0C2EC61727745300F54089 /* tgatype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tgatype.h; sourceTree = "<group>"; };
@@ -91,7 +90,6 @@
 				1F0C2EBE1727745300F54089 /* cameratype.h */,
 				1F0C2EBF1727745300F54089 /* frustumtype.cpp */,
 				1F0C2EC01727745300F54089 /* frustumtype.h */,
-				1F0C2EC21727745300F54089 /* mygl.h */,
 				1F0C2EC31727745300F54089 /* terrainapp.cpp */,
 				1F0C2EC41727745300F54089 /* terraintype.cpp */,
 				1F0C2EC51727745300F54089 /* tgatype.cpp */,
