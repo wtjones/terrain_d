@@ -142,13 +142,13 @@ void OnMouseMove(int x, int y)
 //cout << x <<" : "<<y<<endl;
   if (leftButtonState == GLUT_DOWN || rightButtonState == GLUT_DOWN)
   {
-  deltaMouseYaw = (float)-(x - mouseX);
-  deltaMousePitch = (float)(y - mouseY);
-  if (deltaMousePitch > 20.0f || deltaMousePitch < -20.0f)
-    deltaMousePitch = 0.0f;
+    deltaMouseYaw = (float)-(x - mouseX);
+    deltaMousePitch = (float)(y - mouseY);
+    if (deltaMousePitch > 20.0f || deltaMousePitch < -20.0f)
+      deltaMousePitch = 0.0f;
 
-  mouseY = y;
-  mouseX = x;
+    mouseY = y;
+    mouseX = x;
   }
   
 }
@@ -279,8 +279,8 @@ void keyboardUp(unsigned char key, int x, int y)
 
 void reshape (int w, int h)
 { 		
-	glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
-	glClearDepth( 1.0f );
+  glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
+  glClearDepth( 1.0f );
 	
   glViewport (0, 0, (GLsizei) w, (GLsizei) h); 
   glMatrixMode (GL_PROJECTION);
