@@ -11,12 +11,14 @@
               Added error codes, check the .h file
 
   Known supported formats:
-   type 2 uncompressed true-color 24-bit 
+   type 2 uncompressed true-color 24-bit
    type 3 uncompressed black and white 8-bit
 */
 
 #include <iostream>
 #include <fstream>
+#include <cstring>
+#include <memory>
 #include <stdio.h>
 #include <stdlib.h>
 #include "tgatype.h"
@@ -101,23 +103,23 @@ int TGAType::LoadFile(char *fileName)
     return errorCode = TGA_FILE_ERROR;
   }
   tgaFile.read((char *) &temp, sizeof(temp));
-    
+
    //extract the parts we need for the header
    memcpy(&header.type, &temp[2], 1);
    memcpy(&header.width, &temp[12], 2);
    memcpy(&header.height, &temp[14], 2);
    memcpy(&header.bpp, &temp[16], 1);
-      
+
   if (header.bpp != 24  && header.bpp != 8)
-  { 
+  {
     #ifdef CONSOLE_OUTPUT
     cout << "Not a valid bit depth: " <<  header.bpp << endl;
-    #endif  
+    #endif
     return errorCode = TGA_INVALID_BPP;
   }
-  
+
   // type 2 is uncompressed true-color
-  // type 3 is uncompress black and white  
+  // type 3 is uncompress black and white
   if (header.type != 2 && header.type != 3)
   {
     #ifdef CONSOLE_OUTPUT
@@ -125,7 +127,7 @@ int TGAType::LoadFile(char *fileName)
     #endif
     return errorCode = TGA_INVALID_TYPE;
   }
-  
+
   // *******allocate the buffer*********
   buffer = new unsigned char[GetSize()];
   if (!buffer) return errorCode = TGA_MEMORY_ERROR;
@@ -141,7 +143,7 @@ int TGAType::LoadFile(char *fileName)
       << "  bpp:  " << (short)header.bpp<< endl;
    cout << "THE SIZE:  " << GetSize() << endl;
   #endif
-  
+
   if (header.bpp == 24)
   {
     // Change from TGA's blue-green-red to red-green-blue
@@ -152,7 +154,7 @@ int TGAType::LoadFile(char *fileName)
       buffer[i+2] = tempByte;
     }
   }
-    
+
    isLoaded = true;
    return 0;
 }

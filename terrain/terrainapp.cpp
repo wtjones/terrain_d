@@ -32,15 +32,18 @@ TODO LIST:
 
 
 #include <iostream>
+#include <cstring>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-#ifdef __APPLE__
-    #include <GLUT/GLUT.h>
-#elif defined WIN32
-    #include <windows.h>
-    #include <glut.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#include <glut.h>
+#else
+#include <GL/glut.h>
+
 #endif
 
 #include "cameratype.h"

@@ -1,6 +1,6 @@
-#include <gl\glut.h>
+#include <GL/glut.h>
 #include "mygl.h"
-#include "tga.h"
+#include "tgatype.h"
 
 extern GLuint texID[];
 
@@ -9,8 +9,9 @@ bool myglBindTGA (char * fileName, int texIndex)
    TGAType tga; int i;
    if (!tga.LoadFile(fileName)) return false;
 
-   glBindTexture(GL_TEXTURE_2D, texID[texIndex]);
-   glPixelStorei (GL_UNPACK_ALIGNMENT, texID[texIndex]);
+   // disabled due to error regardin extern on newer compiler
+   //glBindTexture(GL_TEXTURE_2D, texID[texIndex]);
+   //glPixelStorei (GL_UNPACK_ALIGNMENT, texID[texIndex]);
 
    //Dont seem to need this:
       //glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
