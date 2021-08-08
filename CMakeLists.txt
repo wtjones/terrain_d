@@ -1,4 +1,9 @@
 cmake_minimum_required(VERSION 3.21)
+# Clang cannot find GLUT on Mac OS for some reason
+if(APPLE)
+    set(CMAKE_C_COMPILER "gcc")
+    set(CMAKE_CXX_COMPILER "g++")
+endif()
 
 project(
     TerrainD
@@ -18,7 +23,6 @@ add_executable(terrain_d
 find_package(OpenGL REQUIRED COMPONENTS OpenGL)
 find_package(GLUT REQUIRED)
 
-add_dependencies(terrain_d OpenGL::OpenGL)
-include_directories(${GLUT_INCLUDE_DIRS} )
+include_directories(${OPENGL_INCLUDE_DIRS} ${GLUT_INCLUDE_DIRS})
 
-target_link_libraries(terrain_d OpenGL::OpenGL ${GLUT_LIBRARIES}  ${OPENGL_LIBRARIES} )
+target_link_libraries(terrain_d ${GLUT_LIBRARIES}  ${OPENGL_LIBRARIES})

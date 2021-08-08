@@ -3,11 +3,14 @@
 
 #include <iostream>
 #include <fstream>
+
 #ifdef __APPLE__
-    #include <GLUT/GLUT.h>
-#elif defined WIN32
-    #include <windows.h>
-    #include <glut.h>
+#include <GLUT/glut.h>
+#elif _WIN32
+#include <windows.h>
+#include <glut.h>
+#else
+#include <GL/glut.h>
 #endif
 #include "travmath.h"
 #include "frustumtype.h"
@@ -36,14 +39,14 @@ struct TriStripListType
 class TerrainType
 {
   private:
-    
+
     ofstream out;
     int unitScale;
     float *viewer;
     FrustumType *frustumPtr;
     float cullValue;
-  public: 
-   
+  public:
+
     bool buildDebugOutput; //if true, the quadtree will be output to a file
                            //for one frame, then set back to false
 
@@ -54,7 +57,7 @@ class TerrainType
     int width, height;
     int numTriangles;
     int numVertices;
- 
+
     unsigned int *triStripMeshIndices;
     int numTriStripMeshIndices;
     int triStripMeshWidth;
@@ -66,13 +69,13 @@ class TerrainType
     int viewIndexCount;
     int viewTriCount;
     int viewTriStripCount;
-    
+
     TerrainType();
     ~TerrainType();
     TerrainError LoadHeightmap(char *, int, float);
     float *GetVertex(int r, int c);
     void BuildView(float);
-    
+
     void SetView(FrustumType *, float *);
     //bool TerrainType::PointInClipPlanes( float x, float y, float z );
     void TerrainSplit(int rowBL, int colBL, int rowTR, int colTR, int depth);

@@ -38,12 +38,13 @@ TODO LIST:
 #include <time.h>
 
 
-#ifdef _WIN32
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#elif _WIN32
 #include <windows.h>
 #include <glut.h>
 #else
 #include <GL/glut.h>
-
 #endif
 
 #include "cameratype.h"
