@@ -26,3 +26,5 @@ find_package(GLUT REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIRS} ${GLUT_INCLUDE_DIRS})
 
 target_link_libraries(terrain_d ${GLUT_LIBRARIES}  ${OPENGL_LIBRARIES})
+
+file(COPY terrain/assets DESTINATION ${CMAKE_BINARY_DIR})
