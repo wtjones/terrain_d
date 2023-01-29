@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
-# Clang cannot find GLUT on Mac OS for some reason
-if(APPLE)
-    set(CMAKE_C_COMPILER "gcc")
-    set(CMAKE_CXX_COMPILER "g++")
-endif()
+
+set(CMAKE_WARN_DEPRECATED OFF CACHE BOOL "" FORCE)
 
 project(
     TerrainD
